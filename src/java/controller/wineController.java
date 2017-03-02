@@ -7,11 +7,13 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,19 +33,60 @@ public class wineController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if(request.getParameter("ok")!=null){
+             //sí que he clicat un botó de formulari
+             String action=request.getParameter("ok");
+             switch(action){
+                 case "PRUEBA":
+                     login(request,response);
+                     break;
+             }
+         }else{
+             //no he donat al botó ok
+             response.sendRedirect("index.jsp");
+         }
+        }
+
+    /**
+     * Validate the login
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException
+     * @throws IOException 
+     */
+     protected void login(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+         
+            HttpSession session = request.getSession();
+            request.setAttribute("prueba", "okidoki");
+            RequestDispatcher oDispatcher=request.getRequestDispatcher("index.jsp");
+            oDispatcher.forward(request,response);
+            response.sendRedirect("index.jsp");
+         }
+     
+     private void printing( HttpServletResponse response,String result)
+    throws ServletException,IOException{
+        
         response.setContentType("text/html;charset=UTF-8");
+        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
+           
             out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet wineController</title>");            
+            out.println("<head><link rel='stylesheet' type='text/css' href='css/style.css' /> ");
+            out.println("<title>Servlet</title>");            
             out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet wineController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
+            out.println("<body><header><h1>Practice</h1><h5>Form field validation</h5></header><article>");
+            
+            out.println(result);
+            out.println("</article></body>");
             out.println("</html>");
         }
+        
+        
+
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -84,5 +127,5 @@ public class wineController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-}
+                 
+     }

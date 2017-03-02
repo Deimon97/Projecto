@@ -42,12 +42,11 @@
       <nav>
           <a href="#">Prueba</a>
           <a href="logout.jsp">Logout</a>
-          <a href ="controller?ok=SEARCHFORM">Search form</a>
+          <a href ="wineController?ok=PRUEBA">Prueba</a>
       </nav>
-          
+          ${prueba}
          
         <%}%>
-        
         
       
       <%
