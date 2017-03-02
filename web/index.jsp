@@ -40,7 +40,7 @@
       
       <%if(session.getAttribute("userValid")=="ok"){%>
       <nav>
-          <a href="#">Prueba</a>
+          <a href="#">Cosa</a>
           <a href="logout.jsp">Logout</a>
           <a href ="wineController?ok=PRUEBA">Prueba</a>
       </nav>

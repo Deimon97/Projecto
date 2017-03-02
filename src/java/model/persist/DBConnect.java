@@ -10,5 +10,23 @@ package model.persist;
  * @author projecto
  */
 public class DBConnect {
+
+    private String Dbase;
+
+    DBConnect(String sqlLink) {
+        this.Dbase=sqlLink;
+    }
+
+    public String getDbase() {
+        return Dbase;
+    }
+
+    public void setDbase(String Dbase) {
+        this.Dbase = Dbase;
+    }
+    
+    
+
+    
     
 }

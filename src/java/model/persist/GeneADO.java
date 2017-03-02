@@ -5,16 +5,16 @@
  */
 package model.persist;
 
-import model.File_MicroArray;
+import model.GeneClass;
 
 /**
  *
  * @author projecto
  */
-public class File_MicroArrayADO {
-   private String conn;
+public class GeneADO {
+    private String conn;
 
-    public File_MicroArrayADO() {
+    public GeneADO() {
         String sqlLink="LinkdePruebaDBSql";
         this.conn= new DBConnect(sqlLink).getDbase();
     }
@@ -36,8 +36,8 @@ public class File_MicroArrayADO {
      * @param user
      * @return 
      */
-    public String insert (File_MicroArray file){
-        return "inserting the user:"+file.toString();
+    public String insert (GeneClass gene){
+        return "inserting the user:"+gene.toString();
     }
     
     /**
@@ -45,7 +45,7 @@ public class File_MicroArrayADO {
      * @param user
      * @return 
      */
-    public String update(File_MicroArray file){
-        return "update the user:"+file.toString();
-    } 
+    public String update(GeneClass gene){
+        return "update the user:"+gene.toString();
+    }
 }

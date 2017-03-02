@@ -5,33 +5,20 @@
  */
 package controller;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import static java.lang.System.out;
-import java.text.Normalizer;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.Map;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author projecto
  */
-@WebServlet(name = "UserController", urlPatterns = {"/UserController"})
-public class UserController extends HttpServlet {
+@WebServlet(name = "StudyController", urlPatterns = {"/StudyController"})
+public class StudyController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,66 +31,19 @@ public class UserController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(request.getParameter("ok")!=null){
-             //sí que he clicat un botó de formulari
-             String action=request.getParameter("ok");
-             switch(action){
-                 case "LOGIN":
-                     login(request,response);
-                     break;
-             }
-         }else{
-             //no he donat al botó ok
-             response.sendRedirect("index.jsp");
-         }
-        }
-
-    /**
-     * Validate the login
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException
-     * @throws IOException 
-     */
-     protected void login(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-         
-         if(request.getParameter("user")!=null && request.getParameter("password")!=null ){
-                    HttpSession session = request.getSession();
-                    session.setAttribute("userValid", "ok");
-  
-                    RequestDispatcher oDispatcher=request.getRequestDispatcher("index.jsp");
-                    oDispatcher.forward(request,response);
-                    response.sendRedirect("index.jsp");
-                }else{
-                 response.sendRedirect("index.jsp?error=1");
-                }
-        
-        }
-     
-     private void printing( HttpServletResponse response,String result)
-    throws ServletException,IOException{
-        
         response.setContentType("text/html;charset=UTF-8");
-        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
-           
             out.println("<html>");
-            out.println("<head><link rel='stylesheet' type='text/css' href='css/style.css' /> ");
-            out.println("<title>Servlet</title>");            
+            out.println("<head>");
+            out.println("<title>Servlet StudyController</title>");            
             out.println("</head>");
-            out.println("<body><header><h1>Practice</h1><h5>Form field validation</h5></header><article>");
-            
-            out.println(result);
-            out.println("</article></body>");
+            out.println("<body>");
+            out.println("<h1>Servlet StudyController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
             out.println("</html>");
         }
-        
-        
-
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -144,13 +84,5 @@ public class UserController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-                 
-     }
-    
-    
 
-
-
-
-
-
+}
