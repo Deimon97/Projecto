@@ -7,29 +7,18 @@ package model;
 
 /**
  *
- * @author projecto
+ * @author Kevin Casanova
  */
-public class File_MicroArray {
-    private String name;
+public class File_MicroArray extends Files {
     private int size;
     private String author;
     private  String contentFasta;
-    private int id;
 
-    public File_MicroArray(String name, int size, String author, String contentFasta, int id) {
-        this.name = name;
-        this.size = size;
-        this.author = author;
-        this.contentFasta = contentFasta;
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public File_MicroArray(int id, String name, String type, int size, String author, String contentFasta) {
+        super(id, name, type);
+        this.size=size;
+        this.author=author;
+        this.contentFasta=contentFasta;
     }
 
     public int getSize() {
@@ -56,13 +45,8 @@ public class File_MicroArray {
         this.contentFasta = contentFasta;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    
+    
     
     /**
      * Validate the file is format correct

@@ -8,23 +8,19 @@ package model;
 import java.util.Date;
 
 /**
- *
+ * Josep 
  * @author projecto
  */
 public class UserClass {
     
     private int id;
     private String nick;
-    private String special_password;
-    private Date date_created;
-    private  Date dateActivated;
+    private String password;
 
-    public UserClass(int id, String nick, String special_password, Date date_created, Date dateActivated) {
+    public UserClass(int id, String nick, String password) {
         this.id = id;
         this.nick = nick;
-        this.special_password = special_password;
-        this.date_created = date_created;
-        this.dateActivated = dateActivated;
+        this.password = password;
     }
 
     public int getId() {
@@ -43,34 +39,15 @@ public class UserClass {
         this.nick = nick;
     }
 
-    public String getSpecial_password() {
-        return special_password;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSpecial_password(String special_password) {
-        this.special_password = special_password;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public Date getDate_created() {
-        return date_created;
-    }
-
-    public void setDate_created(Date date_created) {
-        this.date_created = date_created;
-    }
-
-    public Date getDateActivated() {
-        return dateActivated;
-    }
-
-    public void setDateActivated(Date dateActivated) {
-        this.dateActivated = dateActivated;
-    }
-
-    @Override
-    public String toString() {
-        return "UserClass{" + "id=" + id + ", nick=" + nick + ", special_password=" + special_password + ", date_created=" + date_created + ", dateActivated=" + dateActivated + '}';
-    }
+    
     
     
     

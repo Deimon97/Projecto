@@ -15,13 +15,11 @@ public class AdminClass extends UserClass {
     
     private int permission;
 
-    public AdminClass(int id, String nick, String special_password, Date date_created, Date dateActivated, int permission) {
-        super(id, nick, special_password, date_created, dateActivated);
+    public AdminClass(int id, String nick, String password, int permission) {
+        super(id, nick, password);
         this.permission=permission;
     }
-    
-    
-    
+
 
     public int getPermission() {
         return permission;
