@@ -54,6 +54,7 @@ public class UserController extends HttpServlet {
              }
          }else{
              //no he donat al botó ok
+             
              response.sendRedirect("index.jsp");
          }
         }

@@ -40,6 +40,24 @@ public class wineController extends HttpServlet {
                  case "PRUEBA":
                      login(request,response);
                      break;
+                 case "createStusy":
+                     createStusy(request,response);
+                     break;
+                 case "stadistic":
+                     stadistic(request,response);
+                     break;
+                  case "searchExtern":
+                     searchExtern(request,response);
+                     break;
+                  case "searchGene":
+                     searchGene(request,response);
+                     break;
+                  case "logStusy":
+                     logStusy(request,response);
+                     break;
+                  case "saveStusy":
+                     saveStusy(request,response);
+                     break;
              }
          }else{
              //no he donat al botó ok
@@ -127,5 +145,83 @@ public class wineController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
+    private void createStusy(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("result", "createStudy");
+        RequestDispatcher oDispatcher=request.getRequestDispatcher("study.jsp");
+                    oDispatcher.forward(request,response);
+                    response.sendRedirect("study.jsp");
+    }
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
+    private void stadistic(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("result", "stadistic");
+        RequestDispatcher oDispatcher=request.getRequestDispatcher("study.jsp");
+                    oDispatcher.forward(request,response);
+                    response.sendRedirect("study.jsp");
+    }
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
+    private void searchExtern(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("result", "searchExtern");
+        RequestDispatcher oDispatcher=request.getRequestDispatcher("wine.jsp");
+                    oDispatcher.forward(request,response);
+                    response.sendRedirect("wine.jsp");
+    }
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
+    private void searchGene(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("result", "searchGene");
+        RequestDispatcher oDispatcher=request.getRequestDispatcher("wine.jsp");
+                    oDispatcher.forward(request,response);
+                    response.sendRedirect("wine.jsp");
+    }
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
+    private void logStusy(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("result", "logStudy");
+        RequestDispatcher oDispatcher=request.getRequestDispatcher("study.jsp");
+                    oDispatcher.forward(request,response);
+                    response.sendRedirect("study.jsp");
+    }
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
+    private void saveStusy(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("result", "saveStudy");
+        RequestDispatcher oDispatcher=request.getRequestDispatcher("study.jsp");
+                    oDispatcher.forward(request,response);
+                    response.sendRedirect("study.jsp");
+    }
                  
      }

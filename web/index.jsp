@@ -42,6 +42,8 @@
       <nav>
           <a href="#">Cosa</a>
           <a href="logout.jsp">Logout</a>
+          <a href="wine.jsp">wine</a>
+          <a href="study.jsp">Study</a>
           <a href ="wineController?ok=PRUEBA">Prueba</a>
       </nav>
           ${prueba}
