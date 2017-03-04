@@ -12,41 +12,33 @@ import model.StudyClass;
  *
  * @author projecto
  */
-public class StudyADO {
+public class StudyADO implements BasicADO {
     private String conn;
     
     public StudyADO() {
         String sqlLink="LinkdePruebaDBSql";
         this.conn= new DBConnect(sqlLink).getDbase();
     }
-    
-    
-    
-    /**
-     * delete the user in the database
-     * @param id
-     * @return 
-     */
-    public String delete (int id){
-        
-        return "delete the register for id:"+id;
+
+    @Override
+    public String delete(Entity enty) {
+        StudyClass study= (StudyClass) enty;
+        return "delete study";
+    }
+
+    @Override
+    public String insert(Entity enty) {
+        StudyClass study= (StudyClass) enty;
+        return "insert study";
+    }
+
+    @Override
+    public String update(Entity enty) {
+        StudyClass study= (StudyClass) enty;
+        return "update study";
     }
     
-    /**
-     * 
-     * @param user
-     * @return 
-     */
-    public String insert (StudyClass study){
-        return "inserting the user:"+study.toString();
-    }
     
-    /**
-     * 
-     * @param user
-     * @return 
-     */
-    public String update(StudyClass study){
-        return "update the user:"+study.toString();
-    }
+    
+    
 }

@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * ADO for the table user reference clas UserCLass
  */
 package model.persist;
 
@@ -9,9 +7,9 @@ import model.*;
 
 /**
  *
- * @author projecto
+ * @author Kevin Casanova 
  */
-public class UserADO {
+public class UserADO implements BasicADO {
     
     private String conn;
 
@@ -19,34 +17,26 @@ public class UserADO {
         String sqlLink="LinkdePruebaDBSql";
         this.conn= new DBConnect(sqlLink).getDbase();
     }
-    
-    
-    
-    /**
-     * delete the user in the database
-     * @param id
-     * @return 
-     */
-    public String delete (int id){
-        
-        return "delete the register for id:"+id;
+
+    @Override
+    public String delete(Entity enty) {
+        UserClass user= (UserClass) enty;
+        return "delete USer";
+    }
+
+    @Override
+    public String insert(Entity enty) {
+        UserClass user= (UserClass) enty;
+        return "insert USer";
+    }
+
+    @Override
+    public String update(Entity enty) {
+        UserClass user= (UserClass) enty;
+        return "update USer";
     }
     
-    /**
-     * 
-     * @param user
-     * @return 
-     */
-    public String insert (UserClass user){
-        return "inserting the user:"+user.toString();
-    }
     
-    /**
-     * 
-     * @param user
-     * @return 
-     */
-    public String update(UserClass user){
-        return "update the user:"+user.toString();
-    }
+    
+    
 }

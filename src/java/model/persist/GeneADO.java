@@ -11,41 +11,31 @@ import model.GeneClass;
  *
  * @author projecto
  */
-public class GeneADO {
+public class GeneADO implements BasicADO {
     private String conn;
 
     public GeneADO() {
         String sqlLink="LinkdePruebaDBSql";
         this.conn= new DBConnect(sqlLink).getDbase();
     }
-    
-    
-    
-    /**
-     * delete the user in the database
-     * @param id
-     * @return 
-     */
-    public String delete (int id){
-        
-        return "delete the register for id:"+id;
+
+    @Override
+    public String delete(Entity enty) {
+        GeneClass gene= (GeneClass) enty;
+        return "delete gene";
+    }
+
+    @Override
+    public String insert(Entity enty) {
+        GeneClass gene= (GeneClass) enty;
+        return "insert gene";
+    }
+
+    @Override
+    public String update(Entity enty) {
+        GeneClass gene= (GeneClass) enty;
+        return "update gene";
     }
     
-    /**
-     * 
-     * @param user
-     * @return 
-     */
-    public String insert (GeneClass gene){
-        return "inserting the user:"+gene.toString();
-    }
     
-    /**
-     * 
-     * @param user
-     * @return 
-     */
-    public String update(GeneClass gene){
-        return "update the user:"+gene.toString();
-    }
 }
